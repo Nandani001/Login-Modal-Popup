@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Modal</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url(images.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        main {
+            max-width: 400px;
+            margin: 200px auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(170, 162, 162);
+            border-radius: 5px;
+            flex-direction: column;
+        }
+
+        .container,.infoBox  {
+            width: 360px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+        .container{
+            background-color: white;
+
+        }
+        .infoBox {
+            flex-direction: column;
+        }
+        main input {
+            width: 100%;
+            padding: 10px 20px;
+            border: 0;
+            outline: 0;
+            font-size: 15px;
+        }
+        label {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .bx {
+            font-size: 2rem;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .bx-show {
+            display: none;
+        }
+        .submitBtn,.okBtn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .okBtn{
+            width: 100px;
+            margin-left: 135px;
+        }
+        .messageBox{
+            display: none;
+        }
+        .messageBox-heading{
+            text-align: center;
+            margin-top: 10px;
+        }
+        .messageBox-para{
+            font-size: 1.4rem;
+            margin: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="infoBox">
+            <label for="">Email</label>
+            <input type="email" name="" id="">
+            <label for="password">Password</label>
+            <div class="container">
+                <input type="password" name="" id="password">
+                <span id="span" onclick="showHidePassword()">
+                    <i class='bx bx-show'"></i>
+                <i class='bx bx-hide'"></i>
+                </span>
+            </div>
+            <button type="button" class="submitBtn" onclick="showMessage()">Submit</button>
+        </div>
+
+        <div class="messageBox">
+            <h1 class="messageBox-heading">Thank You!</h1>
+            <p class="messageBox-para">You details has been successfully submitted. Thanks!</p>
+            <button type="button" class="okBtn">ok</button>
+
+        </div>
+    </main>
+
+    <script>
+
+        function showHidePassword() {
+            let showIcon = document.querySelector('.bx-show');
+            let hideIcon = document.querySelector('.bx-hide');
+            let passwordInput = document.querySelector('#password');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                hideIcon.style.display = 'none';
+                showIcon.style.display = 'block';
+            } else {
+                passwordInput.type = 'password';
+                hideIcon.style.display = 'block';
+                showIcon.style.display = 'none';
+            }
+        }
+
+        function showMessage(){
+            document.querySelector('.messageBox').style.display = 'block';
+            document.querySelector('.infoBox').style.display = 'none';
+        }
+
+    </script>
+</body>
+
+</html>
